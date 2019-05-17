@@ -66,35 +66,35 @@ namespace ExemploPOO
 
         private void ExibeRegistros()
         {
-            String resultado = "";
-            foreach (Pessoa temp in lista)
-            {
-                resultado += temp.Nome + Environment.NewLine;
-            }
-            txtResultado.Text = resultado;
-
-            /*
-            String resultado = "";
-            for (int i = 0; i < lista.Count; i++)
-            {
-                resultado += lista.ElementAt(i).Nome + Environment.NewLine;
-            }
-            txtResultado.Text = resultado;
-            */
+            ExibeRegistros("");
         }
 
-        private void txtConsulta_TextChanged(object sender, EventArgs e)
+        private void ExibeRegistros(String consulta)
         {
-            String consulta = txtConsulta.Text;
-            String resultado = "";
+            // EXIBE RESULTADO NO TEXTBOX
+            String resultado = "Nome\tE-mail\tNascimento\tIdade\tSexo" + Environment.NewLine;
             foreach (Pessoa temp in lista)
             {
                 if (temp.Nome.Contains(consulta))
                 {
-                    resultado += temp.Nome + Environment.NewLine;
+                    resultado += temp.Nome
+                        + "\t" + temp.Email
+                        + "\t" + temp.Nascimento.ToShortDateString()
+                        + "\t" + temp.Idade
+                        + "\t" + temp.Sexo
+                        + Environment.NewLine;
                 }
             }
             txtResultado.Text = resultado;
+
+            // EXIBE RESULTADO NO DATAGRIDVIEW
+            dgvResultado.DataSource = null;
+            dgvResultado.DataSource = lista;
+        }
+
+        private void txtConsulta_TextChanged(object sender, EventArgs e)
+        {
+            ExibeRegistros(txtConsulta.Text);
         }
     }
 }

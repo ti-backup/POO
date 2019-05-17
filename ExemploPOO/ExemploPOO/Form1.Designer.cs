@@ -30,22 +30,24 @@
         {
             this.btnTeste = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdoMasculino = new System.Windows.Forms.RadioButton();
-            this.rdoFeminino = new System.Windows.Forms.RadioButton();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdoFeminino = new System.Windows.Forms.RadioButton();
+            this.rdoMasculino = new System.Windows.Forms.RadioButton();
+            this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtConsulta = new System.Windows.Forms.TextBox();
             this.txtResultado = new System.Windows.Forms.TextBox();
+            this.txtConsulta = new System.Windows.Forms.TextBox();
+            this.dgvResultado = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTeste
@@ -75,54 +77,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro";
             // 
-            // label1
+            // btnSalvar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Data de Nascimento:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "E-mail:";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(50, 13);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(174, 20);
-            this.txtNome.TabIndex = 3;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(50, 39);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(174, 20);
-            this.txtEmail.TabIndex = 4;
-            // 
-            // dtpNascimento
-            // 
-            this.dtpNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNascimento.Location = new System.Drawing.Point(119, 65);
-            this.dtpNascimento.Name = "dtpNascimento";
-            this.dtpNascimento.Size = new System.Drawing.Size(105, 20);
-            this.dtpNascimento.TabIndex = 5;
+            this.btnSalvar.Location = new System.Drawing.Point(9, 149);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 7;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // groupBox2
             // 
@@ -134,6 +97,17 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sexo";
+            // 
+            // rdoFeminino
+            // 
+            this.rdoFeminino.AutoSize = true;
+            this.rdoFeminino.Location = new System.Drawing.Point(86, 20);
+            this.rdoFeminino.Name = "rdoFeminino";
+            this.rdoFeminino.Size = new System.Drawing.Size(67, 17);
+            this.rdoFeminino.TabIndex = 1;
+            this.rdoFeminino.TabStop = true;
+            this.rdoFeminino.Text = "Feminino";
+            this.rdoFeminino.UseVisualStyleBackColor = true;
             // 
             // rdoMasculino
             // 
@@ -147,26 +121,54 @@
             this.rdoMasculino.Text = "Masculino";
             this.rdoMasculino.UseVisualStyleBackColor = true;
             // 
-            // rdoFeminino
+            // dtpNascimento
             // 
-            this.rdoFeminino.AutoSize = true;
-            this.rdoFeminino.Location = new System.Drawing.Point(86, 20);
-            this.rdoFeminino.Name = "rdoFeminino";
-            this.rdoFeminino.Size = new System.Drawing.Size(67, 17);
-            this.rdoFeminino.TabIndex = 1;
-            this.rdoFeminino.TabStop = true;
-            this.rdoFeminino.Text = "Feminino";
-            this.rdoFeminino.UseVisualStyleBackColor = true;
+            this.dtpNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNascimento.Location = new System.Drawing.Point(119, 65);
+            this.dtpNascimento.Name = "dtpNascimento";
+            this.dtpNascimento.Size = new System.Drawing.Size(105, 20);
+            this.dtpNascimento.TabIndex = 5;
             // 
-            // btnSalvar
+            // txtEmail
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(9, 149);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 7;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.txtEmail.Location = new System.Drawing.Point(50, 39);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(174, 20);
+            this.txtEmail.TabIndex = 4;
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(50, 13);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(174, 20);
+            this.txtNome.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "E-mail:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Data de Nascimento:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nome:";
             // 
             // groupBox3
             // 
@@ -174,18 +176,10 @@
             this.groupBox3.Controls.Add(this.txtConsulta);
             this.groupBox3.Location = new System.Drawing.Point(254, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(340, 225);
+            this.groupBox3.Size = new System.Drawing.Size(558, 225);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Consulta";
-            // 
-            // txtConsulta
-            // 
-            this.txtConsulta.Location = new System.Drawing.Point(7, 20);
-            this.txtConsulta.Name = "txtConsulta";
-            this.txtConsulta.Size = new System.Drawing.Size(327, 20);
-            this.txtConsulta.TabIndex = 0;
-            this.txtConsulta.TextChanged += new System.EventHandler(this.txtConsulta_TextChanged);
             // 
             // txtResultado
             // 
@@ -194,14 +188,31 @@
             this.txtResultado.Name = "txtResultado";
             this.txtResultado.ReadOnly = true;
             this.txtResultado.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResultado.Size = new System.Drawing.Size(327, 172);
+            this.txtResultado.Size = new System.Drawing.Size(545, 172);
             this.txtResultado.TabIndex = 1;
+            // 
+            // txtConsulta
+            // 
+            this.txtConsulta.Location = new System.Drawing.Point(7, 20);
+            this.txtConsulta.Name = "txtConsulta";
+            this.txtConsulta.Size = new System.Drawing.Size(545, 20);
+            this.txtConsulta.TabIndex = 0;
+            this.txtConsulta.TextChanged += new System.EventHandler(this.txtConsulta_TextChanged);
+            // 
+            // dgvResultado
+            // 
+            this.dgvResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultado.Location = new System.Drawing.Point(12, 261);
+            this.dgvResultado.Name = "dgvResultado";
+            this.dgvResultado.Size = new System.Drawing.Size(799, 312);
+            this.dgvResultado.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 247);
+            this.ClientSize = new System.Drawing.Size(824, 583);
+            this.Controls.Add(this.dgvResultado);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnTeste);
@@ -213,6 +224,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,6 +246,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtResultado;
         private System.Windows.Forms.TextBox txtConsulta;
+        private System.Windows.Forms.DataGridView dgvResultado;
     }
 }
 
