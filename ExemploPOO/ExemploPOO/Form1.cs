@@ -12,9 +12,12 @@ namespace ExemploPOO
 {
     public partial class Form1 : Form
     {
+        List<Pessoa> lista;
+
         public Form1()
         {
             InitializeComponent();
+            lista = new List<Pessoa>();
         }
 
         private void btnTeste_Click(object sender, EventArgs e)
@@ -22,8 +25,6 @@ namespace ExemploPOO
             Pessoa aluno = new Pessoa();
             aluno.Nome = "Jão";
             aluno.Nascimento = new DateTime(1981, 11, 22);
-
-            //aluno.Idade = 17;
 
             String textoIdade;
             if (aluno.Idade == 0)
@@ -42,6 +43,58 @@ namespace ExemploPOO
                 + "Sexo: " + aluno.Sexo + Environment.NewLine
                 + "E-mail: " + aluno.Email
                 );
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Pessoa p = new Pessoa();
+            p.Nome = txtNome.Text;
+            p.Email = txtEmail.Text;
+            if (rdoMasculino.Checked)
+            {
+                p.Sexo = "Masculino";
+            }
+            else
+            {
+                p.Sexo = "Feminino";
+            }
+            p.Nascimento = dtpNascimento.Value;
+
+            lista.Add(p);
+            ExibeRegistros();
+        }
+
+        private void ExibeRegistros()
+        {
+            String resultado = "";
+            foreach (Pessoa temp in lista)
+            {
+                resultado += temp.Nome + Environment.NewLine;
+            }
+            txtResultado.Text = resultado;
+
+            /*
+            String resultado = "";
+            for (int i = 0; i < lista.Count; i++)
+            {
+                resultado += lista.ElementAt(i).Nome + Environment.NewLine;
+            }
+            txtResultado.Text = resultado;
+            */
+        }
+
+        private void txtConsulta_TextChanged(object sender, EventArgs e)
+        {
+            String consulta = txtConsulta.Text;
+            String resultado = "";
+            foreach (Pessoa temp in lista)
+            {
+                if (temp.Nome.Contains(consulta))
+                {
+                    resultado += temp.Nome + Environment.NewLine;
+                }
+            }
+            txtResultado.Text = resultado;
         }
     }
 }

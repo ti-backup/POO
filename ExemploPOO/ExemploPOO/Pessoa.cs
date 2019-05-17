@@ -9,7 +9,6 @@ namespace ExemploPOO
     class Pessoa
     {
         private String _nome;
-
         public String Nome {
             set { _nome = value.ToUpper(); }
             get { return _nome; }
@@ -27,7 +26,7 @@ namespace ExemploPOO
         public Byte Idade { private set; get; }
         public String Sexo { set; get; }
         public String Email { set; get; }
-
+               
         public Pessoa()
         {
             Nome = "desconhecido";
